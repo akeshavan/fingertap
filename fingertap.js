@@ -1,5 +1,5 @@
 Taps = new Mongo.Collection(null);
-
+Scoreboard = new Mongo.Collection("scoreboard")
 
 if (Meteor.isClient) {
 
@@ -47,6 +47,14 @@ if (Meteor.isClient) {
       $.plot("#placeholder", [data])
       Taps.remove({})
         
+    },
+    
+    "click #submit": function(){
+        form_values = $("#scoreboard").serializeArray()
+        var count = Taps.find({}).count()
+        console.log(form_values)
+        console.log(count)
+        Scoreboard.insert({"score": count, "id":form_values[0]["value"], "hand": form_values[1]["value"]})
     }
     });//end events
 
