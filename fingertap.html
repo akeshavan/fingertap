@@ -25,7 +25,7 @@
 		<p>Number of Taps:</p>
 		<p>{{greeting}}</p>
 		
-		<p><button id="reset">Reset</button></p>
+		<p><button id="reset" class="btn btn-warning">Reset</button></p>
 		<p>
     		<form id="scoreboard">
         		ID: <input id="id" name="id" type="text"/><br>
@@ -33,12 +33,13 @@
                   <option value="dominant">Dominant Hand</option>
                   <option value="nondominant">Nondominant Hand</option>
                   </select><br>
-                  <button type="button" id="submit">Submit</button>
+                  <button type="button" id="submit" class="btn btn-primary">Submit</button>
     		</form>
 		</p>
 		
        <p>
-    		
+           <h2>Scoreboard</h2>
+    		{{> reactiveTable settings=tableSettings}}
     		
 		</p>
 

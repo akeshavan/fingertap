@@ -9,3 +9,5 @@ insecure
 preserve-inputs
 mrt:flot@1.0.6
 jquery
+bootstrap
+aslagle:reactive-table

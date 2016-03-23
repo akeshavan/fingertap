@@ -8,8 +8,25 @@ if (Meteor.isClient) {
   var clicknum = 0
   var data = []
   
-  Template.hello.greeting = function () {
-    return Taps.find({}).count()
+  //Template.hello.greeting = function () {
+  //  return Taps.find({}).count()
+  //};
+
+  Template.hello.helpers({scores: function(){return Scoreboard},
+                          greeting: function(){return Taps.find({}).count()},
+                          tableSettings : function() {
+                              return {
+                                  collection: Scoreboard.find(),
+                                  fields: [
+                                    { key: 'id', label: 'ID' },
+                                    { key: 'score', label: 'Score', sortOrder: 0, sortDirection: 'descending' },
+                                    {key: "hand", label: "hand"}
+                                  ]
+                              }} 
+                          });
+
+Template.hello.scores = function () {
+    return Scoreboard
   };
 
   Template.hello.events({
